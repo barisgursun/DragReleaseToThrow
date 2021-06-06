@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class cam_follow : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform target;
 
-    // Update is called once per frame
-    void Update()
+    public float speed = 15f;
+
+    private void FixedUpdate()
     {
-        
+        transform.position = Vector3.Lerp(transform.position, target.position, speed * Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, speed * Time.deltaTime);
+            
     }
 }
